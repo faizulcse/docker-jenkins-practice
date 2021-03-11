@@ -1,5 +1,4 @@
-node("master") {
-
+node {
     stage("Checkout Repository") {
         checkoutRepo()
     }
