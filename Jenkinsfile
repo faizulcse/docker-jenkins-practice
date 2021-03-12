@@ -3,7 +3,7 @@ node('master'){
     def reportsLocation = "/docker_tc_reports"
 
     stage("Checkout Repository") {
-        checkoutRepo()
+        checkout scm
     }
 
     stage("Build Docker Image") {
