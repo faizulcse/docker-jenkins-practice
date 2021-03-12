@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+DOCKER_IMAGE="node-tc"
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+imageBuild() {
+    docker build --tag ${DOCKER_IMAGE} --file "${ROOT}/Dockerfile" "${ROOT}"
+}
+
+testRun() {
+    docker run --name $1 -e SHARD=${SHARD} -e IAPI_KEY=${IAPI_KEY} ${DOCKER_IMAGE} ${BROWSER} -T ${SELECT_TEST_TYPE_TAG} /app/browser_tests/
+}
+
+copyReportsToJenkins() {
+    sourceLocation=$1':/app/reports/.'
+    destinationLocation='.'$2
+    docker cp $sourceLocation $destinationLocation
+}
+
+removeContainer() {
+    docker rm $1
+}
+
+removeImage() {
+    docker rmi ${DOCKER_IMAGE} -f
+}
+"$@"
