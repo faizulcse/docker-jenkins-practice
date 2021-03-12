@@ -1,5 +1,5 @@
 node('master'){
-    stage("Checkout Repository") {
+    stage("Checkout Repository_faizul") {
         checkout scm
         echo "Checkout Repository"
     }
@@ -25,6 +25,6 @@ node('master'){
     }
 
     stage("Send Slack notification with results") {
-        echo "Send Slack notification with results"
+        echo "Send Slack notification with results_faizul"
     }
 }
