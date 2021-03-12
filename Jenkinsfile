@@ -1,4 +1,4 @@
-node("master"){
+node('node'){
     stage("Checkout Repository") {
         checkout scm
         echo "Checkout Repository"
