@@ -1,8 +1,10 @@
 node('master'){
+    def containerName="tc-${env.BUILD_NUMBER}"
+
     stage("Checkout Repository_faizul") {
         checkout scm
         echo "Checkout Repository"
-        echo ${IAPI_KEY}
+        echo containerName
     }
 
     stage("Build Docker Image") {
