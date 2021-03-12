@@ -2,6 +2,7 @@ node('master'){
     stage("Checkout Repository_faizul") {
         checkout scm
         echo "Checkout Repository"
+        echo ${IAPI_KEY}
     }
 
     stage("Build Docker Image") {
