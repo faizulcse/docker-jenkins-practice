@@ -1,6 +1,7 @@
-node {
+node() {
     stage("Checkout Repository") {
-        checkoutRepo()
+        checkout scm
+        echo "Checkout Repository"
     }
 
     stage("Build Docker Image") {
