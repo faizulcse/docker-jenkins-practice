@@ -1,6 +1,6 @@
 node('master'){
     stage("Checkout Repository") {
-        checkoutRepo()
+        checkout scm
         echo "Checkout Repository"
     }
 
