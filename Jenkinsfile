@@ -6,18 +6,12 @@ node('master'){
         checkout scm
     }
 
-    stage("Env variable"){
-       echo "${BROWSER}"
-       echo "${SELECT_TEST_TYPE_TAG}"
-       echo "${SHARD}"
-        sh "echo \$(git rev-parse --show-toplevel)"
+    stage("Build Docker Image") {
+        withDocker() {
+            sh './script/ci imageBuild'
+            sh "echo \$docker ps -a"
+        }
     }
-
-//    stage("Build Docker Image") {
-//        withDocker() {
-//            sh './script/ci imageBuild'
-//        }
-//    }
 //
 //    stage("Run Tests") {
 //        withCredentials([[$class: 'UsernamePasswordMultiBinding',
