@@ -11,7 +11,7 @@ imageBuild() {
 }
 
 testRun() {
-    docker run --name $1 -e SHARD=${SHARD} -e IAPI_KEY=${IAPI_KEY} ${DOCKER_IMAGE}
+    docker run --name $1 ${DOCKER_IMAGE}
 }
 
 copyReportsToJenkins() {
