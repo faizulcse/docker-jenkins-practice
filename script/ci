@@ -21,6 +21,7 @@ copyReportsToJenkins() {
 }
 
 removeContainer() {
+    echo "Container name: " + $1
     docker rm $1
 }
 
