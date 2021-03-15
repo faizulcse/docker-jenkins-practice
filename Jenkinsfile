@@ -7,10 +7,8 @@ node('master'){
     }
 
     stage("Build Docker Image") {
-        withDocker() {
             sh './script/ci imageBuild'
             sh "echo \$docker ps -a"
-        }
     }
 //
 //    stage("Run Tests") {
