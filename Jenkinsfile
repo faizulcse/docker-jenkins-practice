@@ -10,7 +10,7 @@ node('master'){
        echo "${BROWSER}"
        echo "${SELECT_TEST_TYPE_TAG}"
        echo "${SHARD}"
-        sh "echo ${git rev-parse --show-toplevel}"
+        sh "echo \$(git rev-parse --show-toplevel)"
     }
 
 //    stage("Build Docker Image") {
