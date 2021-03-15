@@ -7,10 +7,12 @@ DOCKER_IMAGE="node-tc"
 ROOT="$(git rev-parse --show-toplevel)"
 
 imageBuild() {
+    docker rmi $(docker images -a -q)
     docker build --tag ${DOCKER_IMAGE} --file "${ROOT}/Dockerfile" "${ROOT}"
 }
 
 testRun() {
+    echo $1
     docker run --name $1 ${DOCKER_IMAGE}
 }
 
