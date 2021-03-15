@@ -8,7 +8,6 @@ node('master'){
 
     stage("Build Docker Image") {
             sh './script/ci imageBuild'
-            sh 'docker ps -a'
     }
 
     stage("Run Tests") {
@@ -32,9 +31,9 @@ node('master'){
 //    }
 //
     stage("Delete Container and Docker Image") {
-        sh 'docker container rm $(docker container ls –aq)'
         sh './script/ci removeContainer '+containerName
         sh './script/ci removeImage'
+        sh 'docker ps -a'
     }
 //
 //    stage("Publish Reports to Jenkins Build from Workspace") {
