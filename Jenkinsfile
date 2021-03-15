@@ -32,6 +32,7 @@ node('master'){
 //    }
 //
     stage("Delete Container and Docker Image") {
+        sh 'docker container rm $(docker container ls –aq)'
         sh './script/ci removeContainer '+containerName
         sh './script/ci removeImage'
     }
