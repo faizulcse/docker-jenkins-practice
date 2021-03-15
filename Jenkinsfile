@@ -25,10 +25,10 @@ node('master'){
                 echo "Successfully run =>>>>>>>>>>>>>"
     }
 
-    stage("Generate Test Reports") {
-        sh 'mkdir '+"${env.WORKSPACE}"+reportsLocation
-        sh './script/ci copyReportsToJenkins '+containerName+' '+reportsLocation
-    }
+//    stage("Generate Test Reports") {
+//        sh 'mkdir '+"${env.WORKSPACE}"+reportsLocation
+//        sh './script/ci copyReportsToJenkins '+containerName+' '+reportsLocation
+//    }
 
     stage("Delete Container and Docker Image") {
         sh "echo "Container name: " + ${1}"
