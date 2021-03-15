@@ -7,9 +7,9 @@ node('master'){
     }
 
     stage("Env variable"){
-       echo ${BROWSER}
-       echo ${SELECT_TEST_TYPE_TAG}
-       echo ${SHARD}
+       echo "${BROWSER}"
+       echo "${SELECT_TEST_TYPE_TAG}"
+       echo "${SHARD}"
     }
 
 //    stage("Build Docker Image") {
