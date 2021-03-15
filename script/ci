@@ -11,7 +11,7 @@ imageBuild() {
 }
 
 testRun() {
-    docker run --name $1 -e SHARD=${SHARD} -e IAPI_KEY=${IAPI_KEY} ${DOCKER_IMAGE} ${BROWSER} -T ${SELECT_TEST_TYPE_TAG} /app/browser_tests/
+    docker run --name $1 -e SHARD=${SHARD} -e IAPI_KEY=${IAPI_KEY} ${DOCKER_IMAGE}
 }
 
 copyReportsToJenkins() {
