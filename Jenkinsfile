@@ -31,6 +31,7 @@ node('master'){
     }
 
     stage("Delete Container and Docker Image") {
+        sh "echo "Container name: " + ${1}"
         sh './script/ci removeContainer '+containerName
         sh './script/ci removeImage'
     }
