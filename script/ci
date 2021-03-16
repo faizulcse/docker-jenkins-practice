@@ -17,11 +17,9 @@ testRun() {
 copyReportsToJenkins() {
     sourceLocation=$1':/app/reports/.'
     destinationLocation='.'$2
+    echo $sourceLocation
+    echo $destinationLocation
     docker cp $sourceLocation $destinationLocation
-}
-
-printValue(){
-    echo "====>" $1 "<===Container Name======>"
 }
 
 removeContainer() {
