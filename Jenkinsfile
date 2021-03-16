@@ -17,12 +17,8 @@ node('master'){
             // If any tests fail, Jenkins will exit with code 1,
             // which prevents the reporting script from running. Let's mark
             // the build as unstable instead.
-            if (exitCode == 1) {
-                echo "Fail=====>>>>>>>>"
+            if (exitCode == 1)
                 currentBuild.result = "UNSTABLE"
-            }
-            else
-                echo "Successfully run =>>>>>>>>>>>>>"
     }
 
     stage("Generate Test Reports") {
@@ -35,17 +31,17 @@ node('master'){
         sh './script/ci removeContainer '+containerName
         sh './script/ci removeImage'
     }
-//
-//    stage("Publish Reports to Jenkins Build from Workspace") {
-//        publishHTML([
-//                allowMissing: false,
-//                alwaysLinkToLastBuild: true,
-//                keepAll: true,
-//                reportDir: "${env.WORKSPACE}"+reportsLocation,
-//                reportFiles: '*.html',
-//                reportName: 'HTML Report',
-//                reportTitles: ''])
-//    }
+
+    stage("Publish Reports to Jenkins Build from Workspace") {
+        publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: "${env.WORKSPACE}"+reportsLocation,
+                reportFiles: '*.html',
+                reportName: 'HTML Report',
+                reportTitles: ''])
+    }
 
 
 }
