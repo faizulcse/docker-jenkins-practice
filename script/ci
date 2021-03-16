@@ -20,6 +20,10 @@ copyReportsToJenkins() {
     docker cp $sourceLocation $destinationLocation
 }
 
+printValue(){
+echo $1
+}
+
 removeContainer() {
     docker rm $1
 }

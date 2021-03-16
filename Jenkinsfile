@@ -30,8 +30,9 @@ node('master'){
 //        sh './script/ci copyReportsToJenkins '+containerName+' '+reportsLocation
 //    }
 
+
     stage("Delete Container and Docker Image") {
-        sh 'echo Container name:'  + ${1}
+        sh './script/ci printValue' + "========Container name======>"
         sh './script/ci removeContainer '+containerName
         sh './script/ci removeImage'
     }
