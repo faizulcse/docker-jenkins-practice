@@ -47,4 +47,8 @@ node('master'){
 //                reportTitles: ''])
 //    }
 
+    stage("Delete Workspace"){
+        deleteDir()
+    }
+
 }
