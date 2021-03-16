@@ -1,6 +1,6 @@
 node('master'){
     def containerName="tc-${env.BUILD_NUMBER}"
-    def reportsLocation = "/docker_tc_reports"
+    def reportsLocation = "/docker_tc_reports2"
 
     stage("Checkout Repository") {
         checkout scm
@@ -47,8 +47,5 @@ node('master'){
 //                reportTitles: ''])
 //    }
 
-    stage("Delete Workspace"){
-        deleteDir()
-    }
 
 }
