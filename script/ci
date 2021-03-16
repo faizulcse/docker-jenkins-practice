@@ -21,7 +21,7 @@ copyReportsToJenkins() {
 }
 
 printValue(){
-echo $1
+    echo "====>" $1 "<===Container Name======>"
 }
 
 removeContainer() {
